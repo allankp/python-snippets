@@ -5,7 +5,7 @@ Python snippets for Zed IDE.
 
 1. Clone this repo:
 ```
-git clone https://github.com/allanklp/python-snippets.git
+git clone https://github.com/allankp/python-snippets.git
 ```
 2. Go to Extensions menu in Zed IDE
 3. Click "Install Dev Extension"
