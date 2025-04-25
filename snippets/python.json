@@ -1,0 +1,229 @@
+{
+  "Python script skeleton": {
+    "prefix": "py_skel",
+    "body": [
+      "#!/usr/bin/env python3",
+      "\"\"\"${1:Module description}\"\"\"",
+      "",
+      "import sys",
+      "",
+      "def main() -> None:",
+      "    ${2:pass}",
+      "",
+      "if __name__ == \"__main__\":",
+      "    sys.exit(main())"
+    ],
+    "description": "Executable script template with main guard"
+  },
+  "Python class": {
+    "prefix": "py_class",
+    "body": [
+      "class ${1:ClassName}:",
+      "    \"\"\"${2:One-line summary}.\"\"\"",
+      "",
+      "    def __init__(self, ${3:args}):",
+      "        ${4:pass}"
+    ],
+    "description": "Standard class with docstring and __init__"
+  },
+  "Python dataclass": {
+    "prefix": "py_dataclass",
+    "body": [
+      "from dataclasses import dataclass",
+      "",
+      "@dataclass",
+      "class ${1:DataName}:",
+      "    ${2:field_name}: ${3:type} = ${4:value}"
+    ],
+    "description": "Dataclass definition"
+  },
+  "Python property": {
+    "prefix": "py_prop",
+    "body": [
+      "@property",
+      "def ${1:attr}(self) -> ${2:type}:",
+      "    \"\"\"${3:Docstring}.\"\"\"",
+      "    return self._${1}",
+      "",
+      "@${1}.setter",
+      "def ${1}(self, value: ${2:type}) -> None:",
+      "    self._${1} = value"
+    ],
+    "description": "Getter/-setter property pair"
+  },
+  "Python decorator": {
+    "prefix": "py_deco",
+    "body": [
+      "from functools import wraps",
+      "",
+      "def ${1:decorator}(func):",
+      "    @wraps(func)",
+      "    def wrapper(*args, **kwargs):",
+      "        ${2:# pre-logic}",
+      "        result = func(*args, **kwargs)",
+      "        ${3:# post-logic}",
+      "        return result",
+      "    return wrapper"
+    ],
+    "description": "Function decorator skeleton"
+  },
+  "Python context manager (class)": {
+    "prefix": "py_cm_class",
+    "body": [
+      "class ${1:ContextManager}:",
+      "    def __enter__(self):",
+      "        ${2:# setup}",
+      "        return self",
+      "",
+      "    def __exit__(self, exc_type, exc, tb):",
+      "        ${3:# teardown}",
+      "        return ${4:False}  # suppress exception?"
+    ],
+    "description": "Context-manager class (__enter__/__exit__)"
+  },
+  "Python context manager (decorator)": {
+    "prefix": "py_cm",
+    "body": [
+      "from contextlib import contextmanager",
+      "",
+      "@contextmanager",
+      "def ${1:resource}(${2:args}):",
+      "    ${3:# setup}",
+      "    try:",
+      "        yield ${4:value}",
+      "    finally:",
+      "        ${5:# teardown}"
+    ],
+    "description": "Context-manager via @contextmanager"
+  },
+  "Python try/except": {
+    "prefix": "py_try",
+    "body": [
+      "try:",
+      "    ${1:pass}",
+      "except ${2:Exception} as e:",
+      "    ${3:print}(f\"Error: {e}\")"
+    ],
+    "description": "Basic try-except block"
+  },
+  "Python try/except/finally": {
+    "prefix": "py_tryf",
+    "body": [
+      "try:",
+      "    ${1:pass}",
+      "except ${2:Exception} as e:",
+      "    ${3:handle_error}(e)",
+      "finally:",
+      "    ${4:cleanup}()"
+    ],
+    "description": "try-except with finally"
+  },
+  "Python type hint import": {
+    "prefix": "py_typing",
+    "body": [
+      "from __future__ import annotations",
+      "from typing import ${1:Any}"
+    ],
+    "description": "Import typing utilities"
+  },
+  "Python multi-line docstring": {
+    "prefix": "py_doc",
+    "body": [
+      "\"\"\"${1:Summary line}",
+      "",
+      "Args:",
+      "    ${2:param}: ${3:description}",
+      "",
+      "Returns:",
+      "    ${4:type}: ${5:description}",
+      "\"\"\""
+    ],
+    "description": "Google-style multi-line docstring"
+  },
+  "Python one-line docstring": {
+    "prefix": "py_doc1",
+    "body": ["\"\"\"${1:Short description}.\"\"\""],
+    "description": "Single-line docstring"
+  },
+  "Python with open": {
+    "prefix": "py_open",
+    "body": [
+      "with open(\"${1:path}\", \"${2:r}\") as ${3:f}:",
+      "    ${4:data} = ${3:f}.${5:read}()"
+    ],
+    "description": "File-open context"
+  },
+  "Python logging config": {
+    "prefix": "py_logcfg",
+    "body": [
+      "import logging",
+      "",
+      "logging.basicConfig(",
+      "    level=logging.${1:INFO},",
+      "    format=\"%(asctime)s [%(levelname)s] %(name)s: %(message)s\",",
+      ")",
+      "logger = logging.getLogger(__name__)"
+    ],
+    "description": "Basic logging configuration"
+  },
+  "Python f-string print": {
+    "prefix": "py_fprint",
+    "body": ["print(f\"${1:var} = {${1:var}}\")"],
+    "description": "Quick f-string debug print"
+  },
+  "Python unittest skeleton": {
+    "prefix": "py_unittest",
+    "body": [
+      "import unittest",
+      "",
+      "class ${1:TestSomething}(unittest.TestCase):",
+      "    def test_${2:case}(self):",
+      "        ${3:self.assertEqual}(${4:expected}, ${5:actual})",
+      "",
+      "if __name__ == \"__main__\":",
+      "    unittest.main()"
+    ],
+    "description": "unittest.TestCase template"
+  },
+  "Python pytest function": {
+    "prefix": "py_pytest",
+    "body": [
+      "def test_${1:func}():",
+      "    ${2:assert} ${3:actual} == ${4:expected}"
+    ],
+    "description": "pytest test function"
+  },
+  "Python argparse": {
+    "prefix": "py_argparse",
+    "body": [
+      "import argparse",
+      "",
+      "def get_args() -> argparse.Namespace:",
+      "    parser = argparse.ArgumentParser(description=\"${1:Description}\")",
+      "    parser.add_argument(\"${2:input}\", help=\"${3:Input file}\")",
+      "    return parser.parse_args()",
+      "",
+      "args = get_args()"
+    ],
+    "description": "argparse boilerplate"
+  },
+  "Python list comprehension": {
+    "prefix": "py_listcomp",
+    "body": ["[${1:expr} for ${2:item} in ${3:iterable}]$0"],
+    "description": "List comprehension"
+  },
+  "Python generator": {
+    "prefix": "py_gen",
+    "body": [
+      "def ${1:gen_name}(${2:args}):",
+      "    \"\"\"Yield ${3:something}.\"\"\"",
+      "    ${4:yield expr}"
+    ],
+    "description": "Generator function"
+  },
+  "Python ipdb breakpoint": {
+    "prefix": "py_ipdb",
+    "body": ["import ipdb; ipdb.set_trace()$0"],
+    "description": "Drop into the ipdb debugger"
+  }
+}

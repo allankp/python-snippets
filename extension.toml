@@ -1,0 +1,8 @@
+id = "python-snippets"
+name = "Python Snippets"
+version = "0.0.1"
+schema_version = 1
+authors = ["Allan Kilpatrick <allanklp@gmail.com>"]
+description = "Python snippets for Zed IDE."
+repository = "https://github.com/allankp/python-snippets"
+snippets = "./snippets/python.json"
